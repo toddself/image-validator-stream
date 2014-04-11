@@ -1,3 +1,5 @@
+[![build status](https://secure.travis-ci.org/toddself/image-validator-stream.png)](http://travis-ci.org/toddself/image-validator-stream)
+
 # image-validator-stream
 Provides a transform stream to inspect the incoming header of an image to detemine if it's a valid image format.
 
@@ -22,3 +24,4 @@ false
 
 ## License
 Copyright © 2014 Todd Kennedy, Licensed under the MIT License
+

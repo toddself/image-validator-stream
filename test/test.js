@@ -64,3 +64,12 @@ test('errors on non-image files', function(t){
   });
   fs.createReadStream(fn).pipe(iVS).pipe(process.stderr);
 });
+
+test('does not interfere if format is unknown', function(t){
+  var iVS = makeTS('txt');
+  var fn = 'test.txt';
+  fs.createReadStream(fn).pipe(iVS).on('end', function(){
+    t.ok(iVS.validStream);
+    t.end();
+  }).pipe(process.stderr);
+});

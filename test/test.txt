@@ -1,0 +1,50 @@
+<HTML>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!-- Created on October, 3  2005 by texi2html 1.64 -->
+<!-- 
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Olaf Bachmann <obachman@mathematik.uni-kl.de>
+Send bugs and suggestions to <texi2html@mathematik.uni-kl.de>
+ 
+-->
+<HEAD>
+<TITLE>Bash Reference Manual: </TITLE>
+
+<META NAME="description" CONTENT="Bash Reference Manual: ">
+<META NAME="keywords" CONTENT="Bash Reference Manual: ">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+<META NAME="Generator" CONTENT="texi2html 1.64">
+
+</HEAD>
+
+<BODY LANG="" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#800080" ALINK="#FF0000">
+
+<A NAME="SEC_Top"></A>
+<TABLE CELLPADDING=1 CELLSPACING=1 BORDER=0>
+<TR><TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="bashref.html#SEC_Top">Top</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="bashref.html#SEC_Contents">Contents</A>]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[Index]</TD>
+<TD VALIGN="MIDDLE" ALIGN="LEFT">[<A HREF="bashref.html#SEC_About"> ? </A>]</TD>
+</TR></TABLE>
+<H1>Bash Reference Manual</H1></P><P>
+
+This text is a brief description of the features that are present in
+the Bash shell (version 3.1-beta1, 5 September 2005)..
+</P><P>
+
+This is Edition 3.1-beta1, last updated 5 September 2005,
+of <CITE>The GNU Bash Reference Manual</CITE>,
+for <CODE>Bash</CODE>, Version 3.1-beta1.
+</P><P>
+
+Bash contains features that appear in other popular shells, and some
+features that only appear in Bash.  Some of the shells that Bash has
+borrowed concepts from are the Bourne Shell (<TT>`sh'</TT>), the Korn Shell
+(<TT>`ksh'</TT>), and the C-shell (<TT>`csh'</TT> and its successor,
+<TT>`tcsh'</TT>). The following menu breaks the features up into
+categories based upon which one of these other shells inspired the
+feature.

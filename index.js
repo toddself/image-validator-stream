@@ -6,9 +6,10 @@ var util = require('util');
 var Transform = stream.Transform;
 
 var imgBuffers = {
-  'jpg': ['FFD8FF'],
-  'gif': ['474946383761', '474946383961'],
-  'png': ['89504E470D0A1A0A']
+  jpg: ['FFD8FF'],
+  gif: ['474946383761', '474946383961'],
+  png: ['89504E470D0A1A0A'],
+  default: ['']
 };
 
 function checkValid(headers, header){
@@ -29,6 +30,9 @@ function ImageValidatorTransform (opts) {
 
   Transform.call(this, opts);
   this._ext = opts.ext;
+  if(Object.keys(imgBuffers).indexOf(this._ext) === -1){
+    this._ext = 'default';
+  }
   this._header = '';
   this._headerMax = imgBuffers[this._ext].reduce(function(acc, header){
     return acc > header.length ? acc : header.length;
