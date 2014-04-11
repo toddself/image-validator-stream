@@ -29,7 +29,7 @@ function ImageValidatorTransform (opts) {
   opts = opts || {};
 
   Transform.call(this, opts);
-  this._ext = opts.ext;
+  this._ext = opts.ext[0] === '.' ? opts.ext.substr(1, opts.ext.length) : opts.ext;
   if(Object.keys(imgBuffers).indexOf(this._ext) === -1){
     this._ext = 'default';
   }

@@ -46,6 +46,16 @@ test('finds good jpgs', function(t){
   }).pipe(process.stderr);
 });
 
+test('handles ext with a period pre-fixed', function(t){
+  var iVS = makeTS('.jpg');
+  var fn = 'test.jpg';
+  fs.createReadStream(fn).pipe(iVS).on('end', function(){
+    t.ok(iVS.validStream, 'did not error');
+    t.end();
+  }).pipe(process.stderr);
+});
+
+
 test('errors on zero length images', function(t){
   var iVS = makeTS('gif');
   var fn = 'bad.png';
