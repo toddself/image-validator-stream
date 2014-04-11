@@ -8,19 +8,46 @@ Currently supports:
 * png
 * gif (87a/89a)
 
-## Usage
+## Example
 ```javascript
-> var ImageValidatorStream  = require('image-validator-stream');
-> ImageValidatorStream.on('error', function(error){
-  console.error('Invalid image');
-});
+var fs = require('fs');
+var path = require('path');
+var ImageStreamValidation = require('../index');
 
-> var imgValidStm = new ImageValidatorStream({ext: 'jpg'});
-> fs.createReadStream('test/junk.jpg').pipe(imgValidStm).pipe(fs.createWriteStream('test/out.jpg'));
-"Invalid image"
-> imgValidStm.validStream
-false
+function validateThenCopy(src, dst, cb){
+  var ext = path.extname(src);
+  var isv = new ImageStreamValidation({ext: ext});
+  isv.on('error', function(err){
+    err.file = dst;
+    cb(err);
+  });
+
+  var out = fs.createWriteStream(dst).on('end', function(){
+
+    cb();
+  });
+
+  fs.createReadStream(src).pipe(isv).pipe(out);
+}
+
+validateThenCopy('junk.jpg', 'awesome.jpg', function(err){
+  if(err){
+    fs.unlink(err.file, function(err){
+      if(err){
+        console.log(err);
+      }
+      console.log('oh noes!');
+    });
+  } else {
+    console.log('awyiss');
+  }
+ });
 ```
+[full example](/examples/abort-on-bad.js)
+
+## Installation
+
+`npm install image-validator-stream`
 
 ## License
 Copyright © 2014 Todd Kennedy, Licensed under the MIT License
