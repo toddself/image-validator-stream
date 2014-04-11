@@ -15,12 +15,12 @@
     "test": "if [ -e $TRAVIS ]; then npm run test-all; else npm run test-main; fi"
   },
   "dependencies": {
-    "readable-stream": "^1.0.26-4"
+    "readable-stream": "~1.0.26-4"
   },
   "devDependencies": {
-    "tap": "^0.4.4",
-    "jshint": "^2.3.0",
-    "nave": "^0.4.3"
+    "tap": "~0.4.4",
+    "jshint": "~2.3.0",
+    "nave": "~0.4.3"
   },
   "author": {
     "name": "Todd Kennedy",
