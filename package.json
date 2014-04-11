@@ -10,8 +10,7 @@
     "postinstall": "node post-install",
     "pre-commit": "npm run lint && npm test",
     "lint": "jshint",
-    "test": "tap test/*js",
-    "prepublish": "docme README.md -- --configure .jsdocrc.json"
+    "test": "tap test/*js"
   },
   "dependencies": {
     "readable-stream": "^1.0.26-4"
