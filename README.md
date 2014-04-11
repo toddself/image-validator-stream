@@ -43,12 +43,12 @@ validateThenCopy('junk.jpg', 'awesome.jpg', function(err){
   }
  });
 ```
-[full example](/examples/abort-on-bad.js)
+[full example](/example/abort-on-bad.js)
 
 ## Installation
 
 `npm install image-validator-stream`
 
 ## License
-Copyright © 2014 Todd Kennedy, Licensed under the MIT License
+Copyright © 2014 Todd Kennedy, Licensed under the [MIT License](LICENSE)
 
