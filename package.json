@@ -1,7 +1,7 @@
 {
   "name": "image-validator-stream",
   "description": "Through stream for verifying if a stream is a valid image (png, gif 87a/89a/ or jpg)",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": {
     "url": "git://github.com/toddself/image-validator-stream.git"
   },
@@ -27,7 +27,13 @@
     "email": "<todd@selfassembled.org>",
     "url": "http://tck.io"
   },
-  "keywords": ["transform stream", "transform", "image", "image validation", "validation"],
+  "keywords": [
+    "transform stream",
+    "transform",
+    "image",
+    "image validation",
+    "validation"
+  ],
   "license": {
     "type": "MIT",
     "url": "https://github.com/toddself/image-validator-stream/blog/master/LICENSE"
