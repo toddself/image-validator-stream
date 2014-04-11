@@ -1,7 +1,7 @@
 {
   "name": "image-validator-stream",
   "description": "Through stream for verifying if a stream is a valid image (png, gif 87a/89a/ or jpg)",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "repository": {
     "url": "git://github.com/toddself/image-validator-stream.git"
   },
