@@ -7,20 +7,14 @@
   },
   "main": "index.js",
   "scripts": {
-    "lint": "jshint",
-    "test-main": "tap test/*.js",
-    "test-0.8": "nave use 0.8 npm run test-main",
-    "test-0.10": "nave use 0.10 npm run test-main",
-    "test-all": "npm run test-main && npm run test-0.8 && npm run test-0.10",
-    "test": "if [ -e $TRAVIS ]; then npm run test-all; else npm run test-main; fi"
+    "test": "standard && tap test/*.js"
   },
   "dependencies": {
-    "readable-stream": "~1.0.26-4"
+    "readable-stream": "^3.0.1"
   },
   "devDependencies": {
-    "tap": "~0.4.4",
-    "jshint": "~2.3.0",
-    "nave": "~0.4.3"
+    "standard": "^11.0.1",
+    "tap": "^12.0.1"
   },
   "author": {
     "name": "Todd Kennedy",
@@ -34,11 +28,8 @@
     "image validation",
     "validation"
   ],
-  "license": {
-    "type": "MIT",
-    "url": "https://github.com/toddself/image-validator-stream/blog/master/LICENSE"
-  },
+  "license": "MIT",
   "engine": {
-    "node": ">=0.8"
+    "node": ">=4"
   }
 }
