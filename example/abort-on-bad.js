@@ -1,34 +1,31 @@
-'use strict';
+const fs = require('fs')
+const path = require('path')
+const ImageValidatorStream = require('../')
 
-var fs = require('fs');
-var path = require('path');
-var ImageStreamValidation = require('../index');
+function validateThenCopy (src, dst, cb) {
+  const ext = path.extname(src)
+  const ivs = new ImageValidatorStream({ext: ext})
+  ivs.on('error', function (err) {
+    err.file = dst
+    cb(err)
+  })
 
-function validateThenCopy(src, dst, cb){
-  var ext = path.extname(src);
-  var isv = new ImageStreamValidation({ext: ext});
-  isv.on('error', function(err){
-    err.file = dst;
-    cb(err);
-  });
+  const out = fs.createWriteStream(dst).on('end', function () {
+    cb()
+  })
 
-  var out = fs.createWriteStream(dst).on('end', function(){
-
-    cb();
-  });
-
-  fs.createReadStream(src).pipe(isv).pipe(out);
+  fs.createReadStream(src).pipe(ivs).pipe(out)
 }
 
-validateThenCopy('junk.jpg', 'awesome.jpg', function(err){
-  if(err){
-    fs.unlink(err.file, function(err){
-      if(err){
-        console.log(err);
+validateThenCopy(path.join(__dirname, 'junk.jpg'), 'awesome.jpg', function (err) {
+  if (err) {
+    fs.unlink(err.file, function (err) {
+      if (err) {
+        console.log(err)
       }
-      console.log('oh noes!');
-    });
+      console.log('oh noes!')
+    })
   } else {
-    console.log('awyiss');
+    console.log('awyiss')
   }
- });
+})

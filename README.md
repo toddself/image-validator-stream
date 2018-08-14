@@ -1,6 +1,7 @@
+# image-validator-stream
+
 [![build status](https://secure.travis-ci.org/toddself/image-validator-stream.png)](http://travis-ci.org/toddself/image-validator-stream)
 
-# image-validator-stream
 Provides a transform stream to inspect the incoming header of an image to detemine if it's a valid image format.
 
 Currently supports:
@@ -9,41 +10,42 @@ Currently supports:
 * gif (87a/89a)
 
 ## Example
-```javascript
-var fs = require('fs');
-var path = require('path');
-var ImageStreamValidation = require('../index');
 
-function validateThenCopy(src, dst, cb){
-  var ext = path.extname(src);
-  var isv = new ImageStreamValidation({ext: ext});
-  isv.on('error', function(err){
-    err.file = dst;
-    cb(err);
-  });
+```js
+const fs = require('fs')
+const path = require('path')
+const ImageValidatorStream = require('image-validator-stream')
 
-  var out = fs.createWriteStream(dst).on('end', function(){
+function validateThenCopy (src, dst, cb) {
+  const ext = path.extname(src)
+  const ivs = new ImageValidatorStream({ext: ext})
+  ivs.on('error', function (err) {
+    err.file = dst
+    cb(err)
+  })
 
-    cb();
-  });
+  const out = fs.createWriteStream(dst).on('end', function () {
+    cb()
+  })
 
-  fs.createReadStream(src).pipe(isv).pipe(out);
+  fs.createReadStream(src).pipe(ivs).pipe(out)
 }
 
-validateThenCopy('junk.jpg', 'awesome.jpg', function(err){
-  if(err){
-    fs.unlink(err.file, function(err){
-      if(err){
-        console.log(err);
+validateThenCopy(path.join(__dirname, 'junk.jpg'), 'awesome.jpg', function (err) {
+  if (err) {
+    fs.unlink(err.file, function (err) {
+      if (err) {
+        console.log(err)
       }
-      console.log('oh noes!');
-    });
+      console.log('oh noes!')
+    })
   } else {
-    console.log('awyiss');
+    console.log('awyiss')
   }
- });
+})
 ```
-[full example](/example/abort-on-bad.js)
+
+[full example](example/abort-on-bad.js)
 
 ## Installation
 
@@ -51,4 +53,3 @@ validateThenCopy('junk.jpg', 'awesome.jpg', function(err){
 
 ## License
 Copyright © 2014 Todd Kennedy, Licensed under the [MIT License](LICENSE)
-
